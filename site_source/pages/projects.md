@@ -7,7 +7,7 @@ Over the last few years, I've worked on several programming projects in my free 
 
 ## [VoxRen](projects_voxren.md)
 
-![](assets/projects_voxren_car_gui.jpeg)
+![](assets/projects_01_voxren_car_gui.jpeg)
 
 A GPU path tracer for voxel environments written in C and OpenCL. Supports lambert, metal, and light source materials. Dielectric (transparent) materials are planned for future implementation.
 
@@ -17,7 +17,7 @@ A GPU path tracer for voxel environments written in C and OpenCL. Supports lambe
     <div class="item">Python</div>
 </div>
 
-## [microcompute](projects_microcompute.md)
+## [microcompute](projects_02_microcompute.md)
 
 ![](assets/projects_microcompute_demo.jpeg)
 
@@ -30,7 +30,7 @@ A small, simple library made to run SPIR-V compute shaders using. Implemented us
     <div class="item">Vulkan</div>
 </div>
 
-## [DOI Lookup](projects_doi.md)
+## [DOI Lookup](projects_03_doi.md)
 
 ![](assets/projects_doi_overview.png)
 
@@ -42,7 +42,7 @@ A web app to look up research articles. In addition to providing basic informati
     <div class="item">JavaScript</div>
 </div>
 
-## [ptmv](projects_ptmv.md)
+## [ptmv](projects_04_ptmv.md)
 
 ![](assets/projects_ptmv_demo.gif)
 
@@ -52,7 +52,7 @@ A terminal app that can display static images and play videos (both local and fr
     <div class="item">Python</div>
 </div>
 
-## [imageToUnicode](projects_itu.md)
+## [imageToUnicode](projects_05_itu.md)
 
 ![](assets/projects_itu_demo.jpeg)
 
@@ -63,7 +63,7 @@ A project aimed to improve ptmv by increasing the number of Unicode characters t
     <div class="item">Python</div>
 </div>
 
-## [mini_doc_gen.py](projects_doc.md)
+## [mini_doc_gen.py](projects_06_doc.md)
 
 ``` python
 import sys, re

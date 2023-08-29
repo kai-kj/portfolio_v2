@@ -140,30 +140,19 @@ pre > code {
 }
 
 .footer {
-    border-radius: 1rem;
     margin: 1rem;
     flex: 0 0 0;
-}
-
-.footer .title {
-    text-align: center;
-    font-weight: bold;
-}
-
-.footer .list {
     display: flex;
-    margin: auto;
     width: min(100%, 40rem);
 }
 
-.footer .list .item {
+.footer .item {
     flex: 1;
-    margin: 0.25rem;
     display: flex;
     justify-content: center;
 }
 
-.footer .list .item .icon {
+.footer .item .icon {
     width: 1.2rem;
     height: 1.2rem;
     vertical-align: middle;
@@ -171,7 +160,7 @@ pre > code {
 }
 
 @media (max-width: 40rem) {
-    .footer .list {
+    .footer {
         flex-direction: column;
     }
 }
