@@ -19,8 +19,6 @@ output = "raw: true\n"
 output += "<div class=\"title\">Pages</div>"
 output += "<hr>"
 
-print(src_files)
-
 for src_file in src_files:
     md = markdown.Markdown(extensions = ["meta"])
     md.convert(src_file.read_text())

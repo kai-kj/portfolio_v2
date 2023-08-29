@@ -20,7 +20,7 @@ def parse_file(in_file: pathlib.Path) -> (str, dict):
         exec(file_contents_raw, {}, local_vars)
         file_contents_raw = local_vars.get("output", "")
     
-    md = markdown.Markdown(extensions = ["meta"])
+    md = markdown.Markdown(extensions = ["extra", "meta", "codehilite"])
     file_contents = md.convert(file_contents_raw)
     metadata = md.Meta
 
@@ -37,8 +37,9 @@ def make_page(in_file: pathlib.Path, header: str, footer: str, nav: str) -> str:
     html_file += "<head>"
     html_file += f"<title>{metadata.get('title', [''])[0]}</title>"
     html_file += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>"
-    html_file += f"<link rel=\"stylesheet\" href=\"styles/{metadata.get('style', [''])[0]}\"/>"
-    html_file += f"<link rel=\"icon\" href=\"images/{metadata.get('icon', [''])[0]}\"/>"
+    html_file += "<link rel=\"stylesheet\" href=\"styles/main.css\"/>"
+    html_file += "<link rel=\"stylesheet\" href=\"styles/highlight.css\"/>"
+    html_file += f"<link rel=\"icon\" href=\"assets/{metadata.get('icon', [''])[0]}\"/>"
     html_file += "</head>"
     html_file += "<body>"
     html_file += f"<div class=\"header\">{header}</div>"
@@ -49,11 +50,11 @@ def make_page(in_file: pathlib.Path, header: str, footer: str, nav: str) -> str:
     html_file += f"<div class=\"footer\">{footer}</div>"
     html_file += "</body>"
 
-    # make external links (any link that isn't .md) open in another tab
-    html_file = re.sub(r"<a(((?!.md)[^>])*)>", r"<a \1 target=\"_blank\">", html_file)
+    # make external links (any link with https://) open in another tab
+    html_file = re.sub(r"<a([^>]*href=\"https?:\/\/[^\"]*\")>", r"<a \1 target=\"_blank\">", html_file)
 
-    # replace .md with .html
-    html_file = re.sub(r"href=\"(\S*)\.md\"", r"href=\1.html", html_file)
+    # replace .md with .html if not external ink
+    html_file = re.sub(r"href=\"((?!https?:\/\/)[^\"]*).md\"", r"href=\1.html", html_file)
 
     return tidylib.tidy_document(html_file)[0]
 
@@ -64,19 +65,19 @@ if len(sys.argv) != 3:
 src_dir = get_src_dir()
 out_dir = get_out_dir()
 
-print(src_dir)
-print(out_dir)
+print(f"src_dir: {src_dir}")
+print(f"out_dir: {out_dir}")
 
 if out_dir.exists():
     shutil.rmtree(out_dir)
 
 out_dir.mkdir()
-(out_dir / "images").mkdir()
+(out_dir / "assets").mkdir()
 (out_dir / "styles").mkdir()
 
-# copy images (TODO: thumbnails)
-for src_file in (src_dir / "images").glob("*"):
-    out_file = out_dir / "images" / src_file.name
+# copy assets (TODO: thumbnails)
+for src_file in (src_dir / "assets").glob("*"):
+    out_file = out_dir / "assets" / src_file.name
     out_file.touch()
     out_file.write_bytes(src_file.read_bytes())
 
@@ -93,7 +94,7 @@ nav = parse_file(next((src_dir / "shared").glob("nav.*")))[0]
 # convert and copy pages
 for src_file in (src_dir / "pages").glob("*"):
     out_file = (out_dir / src_file.name).with_suffix(".html")
-    print(f"- {out_file}")
+    print(f"  parsing {out_file}")
 
     out_file_contents = make_page(src_file, header, footer, nav)
     out_file.touch()
