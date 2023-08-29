@@ -9,6 +9,6 @@ raw: true
     </div>
     <div class="item">
         <img class="icon" src="images/mail.svg" alt="email"/>
-        <a href="mailto:kaikitagawajones.com">kaikitagawajones.com</a>
+        <a href="mailto:kaikitagawajones@gmail.com">kaikitagawajones@gmail.com</a>
     </div>
 </div>
