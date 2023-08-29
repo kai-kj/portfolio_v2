@@ -30,22 +30,29 @@ def parse_file(in_file: pathlib.Path) -> (str, dict):
     return file_contents, metadata
 
 def make_page(in_file: pathlib.Path, header: str, footer: str, nav: str) -> str:
-    html_body, metadata = parse_file(in_file)
+    content, metadata = parse_file(in_file)
 
     html_file = "<!doctype html>"
     html_file += "<html>"
     html_file += "<head>"
     html_file += f"<title>{metadata.get('title', [''])[0]}</title>"
+    html_file += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>"
     html_file += f"<link rel=\"stylesheet\" href=\"styles/{metadata.get('style', [''])[0]}\"/>"
     html_file += f"<link rel=\"icon\" href=\"images/{metadata.get('icon', [''])[0]}\"/>"
     html_file += "</head>"
     html_file += "<body>"
-    html_file += f"<div class=\"page_header\">{header}</div>"
-    html_file += f"<div class=\"page_nav\">{nav}</div>"
-    html_file += f"<div class=\"page_body\">{html_body}</div>"
-    html_file += f"<div class=\"page_footer\">{footer}</div>"
+    html_file += f"<div class=\"header\">{header}</div>"
+    html_file += "<div class=\"body\">"
+    html_file += f"<div class=\"nav\">{nav}</div>"
+    html_file += f"<div class=\"content\">{content}</div>"
+    html_file += "</div>"
+    html_file += f"<div class=\"footer\">{footer}</div>"
     html_file += "</body>"
 
+    # make external links (any link that isn't .md) open in another tab
+    html_file = re.sub(r"<a(((?!.md)[^>])*)>", r"<a \1 target=\"_blank\">", html_file)
+
+    # replace .md with .html
     html_file = re.sub(r"href=\"(\S*)\.md\"", r"href=\1.html", html_file)
 
     return tidylib.tidy_document(html_file)[0]

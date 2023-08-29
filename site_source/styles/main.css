@@ -1,3 +1,112 @@
-.h1 {
-    
+:root {
+	--background-color: #121212;
+	--surface-color: #222222;
+	--surface-color-2: #353535;
+	--on-surface: #cdcdcd;
+}
+
+
+html, body {
+    background-color: var(--background-color);
+    color: var(--on-surface);
+    font-family: "arial";
+    margin: 0.5rem;
+    height: 98%;
+    display: flex;
+    flex-flow: column;
+}
+
+a {
+	color: var(--on-surface);
+}
+
+.header {
+    background-color: var(--surface-color);
+    display: flex;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.header .logo {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+}
+
+.header .title {
+    text-align: center;
+    margin: auto;
+    flex-grow: 1;
+    font-weight: bold;
+    font-size: large;
+}
+
+.body {
+    display: flex;
+    margin-top: 1rem;
+    flex: 1;
+}
+
+.body .nav {
+    background-color: var(--surface-color);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+@media (max-width: 35rem) {
+    .body {
+        flex-direction: column;
+    }
+
+    .body .nav {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 35rem) {
+    .body .nav {
+        margin-right: 1rem;
+    }
+}
+
+.body .nav .title {
+    font-weight: bold;
+    text-align: center;
+}
+
+.body .nav .item {
+    margin-top: 0.25rem;
+}
+
+.body .content {
+    background-color: var(--surface-color);
+    border-radius: 1rem;
+    padding: 1rem;
+    flex-grow: 1;
+}
+
+.footer {
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.footer .title {
+    text-align: center;
+    font-weight: bold;
+}
+
+.footer .list {
+    display: flex;
+    margin: auto;
+    width: min(100%, 40rem);
+}
+
+.footer .list .item {
+    flex: 1;
+    text-align: center;
+}
+
+.footer .list .item .icon {
+    height: 1rem;
+    vertical-align: middle;
 }
