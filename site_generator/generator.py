@@ -4,7 +4,7 @@ import sys
 import markdown
 import tidylib
 import re
-from PIL import Image
+from PIL import Image, ImageOps
 
 def get_src_dir():
     return (pathlib.Path() / sys.argv[1]).absolute()
@@ -22,7 +22,7 @@ def parse_file(in_file: pathlib.Path) -> (str, dict):
         file_contents_raw = local_vars.get("output", "")
     
     file_contents = re.sub(
-        r'!\[(\S*)\]\(assets/(\S*)\)',
+        r'!\[([^\]]*)\]\(assets/(\S*)\)',
         r'<div class="thumbnail"><img alt="\1" src="thumbnails/\2"><a href="assets/\2">click to expand image</a></div>',
         file_contents_raw
     )
@@ -90,11 +90,11 @@ for src_file in (src_dir / "assets").glob("*"):
     out_file_thumb = out_dir / "thumbnails" / src_file.name
 
     try:
-        image = Image.open(src_file)
-        if image.size[0] > 1280 or image.size[1] > 720:
-            scale = min(1280 / image.size[0], 720 / image.size[1])
+        image = ImageOps.exif_transpose(Image.open(src_file))
+        if image.size[0] > 640 or image.size[1] > 480:
+            scale = min(640 / image.size[0], 480 / image.size[1])
             image.resize((int(image.size[0] * scale), int(image.size[1] * scale)))
-        image.save(out_file_thumb)
+        image.save(out_file_thumb, quality=60)
     except:
         out_file_thumb.touch()
         out_file_thumb.write_bytes(src_file.read_bytes())
