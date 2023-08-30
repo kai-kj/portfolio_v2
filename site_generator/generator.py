@@ -16,7 +16,7 @@ def parse_file(in_file: pathlib.Path) -> (str, dict):
     file_contents_raw = in_file.read_text()
 
     if file_type == ".py":
-        local_vars = {"src_dir": str(get_src_dir())}
+        local_vars = {"src_dir": str(get_src_dir()), "parse_file": parse_file}
         exec(file_contents_raw, {}, local_vars)
         file_contents_raw = local_vars.get("output", "")
     
