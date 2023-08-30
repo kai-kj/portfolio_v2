@@ -53,8 +53,8 @@ def make_page(in_file: pathlib.Path, header: str, footer: str, nav: str) -> str:
     # make external links (any link with https://) open in another tab
     html_file = re.sub(r"<a([^>]*href=\"https?:\/\/[^\"]*\")>", r"<a \1 target=\"_blank\">", html_file)
 
-    # replace .md with .html if not external ink
-    html_file = re.sub(r"href=\"((?!https?:\/\/)[^\"]*).md\"", r"href=\1.html", html_file)
+    # replace .md and .py with .html if not external link
+    html_file = re.sub(r"href=\"((?!https?:\/\/)[^\"]*)(?:(?:.md)|(?:.py))\"", r"href=\1.html", html_file)
 
     return tidylib.tidy_document(html_file)[0]
 
