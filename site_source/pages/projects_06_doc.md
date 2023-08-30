@@ -1,9 +1,11 @@
 Title: mini_doc_gen.py
 Icon: logo.jpg
+Preview: assets/projects_doc_demo.png
+Tags: Python
 
 # `mini_doc_gen.py`
 
-This is a tiny Python script (only 30 loc) that given a C file, generates documentation for it. The output is a markdown file, making it ideal for use with GitHub. The full code is shown below: 
+A tiny Python script (only 30 loc) that given a C file, generates documentation for it. The output is a markdown file, making it ideal for use with GitHub. The full code is shown below: 
 
 ``` python
 import sys, re
@@ -37,3 +39,5 @@ def t_iter(txt):
 assert len(sys.argv) == 3, "provide 2 arguments"
 open(sys.argv[2], "w").write("".join(t_iter(T(open(sys.argv[1], "r").read()))))
 ```
+
+[microcompute](projects_02_microcompute.md) uses this tool to generate documentation. The output can be seen [here](https://github.com/kal39/microcompute/blob/main/doc.md).

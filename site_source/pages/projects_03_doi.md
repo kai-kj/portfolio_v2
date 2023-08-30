@@ -1,9 +1,11 @@
 Title: DOI Lookup
 Icon: logo.jpg
+Preview: assets/projects_doi_overview.png
+Tags: HTML CSS JavaScript
 
 # DOI Lookup
 
-A simple [DOI](https://www.doi.org/the-identifier/what-is-a-doi/) lookup tool, available at [doi.kaikitagawajones.com](https://doi.kaikitagawajones.com).
+A web app to look up research articles. In addition to providing basic information about articles, the main focus of the tool is to show the relationship between articles. Available at [doi.kaikitagawajones.com](https://doi.kaikitagawajones.com).
 
 ![DOI overview](assets/projects_doi_overview.png)
 

@@ -83,12 +83,6 @@ pre > code {
     }
 }
 
-@media (min-width: 40rem) {
-    .body .nav {
-        flex-direction: row;
-    }
-}
-
 .body .nav {
     background-color: var(--surface-color);
     border-radius: 1rem;
@@ -125,29 +119,14 @@ pre > code {
     min-width: 0;
 }
 
-.body .content .tech {
-    display: flex;
-    justify-content: center;
-}
-
-.body .content .tech .item {
-    font-family: monospace;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    padding: 0.25rem;
-    border-radius: 0.25rem;
-    background-color: var(--surface-color-2);
-}
-
 .footer {
     margin: 1rem;
     flex: 0 0 0;
     display: flex;
-    width: min(100%, 40rem);
+    justify-content: space-evenly;
 }
 
 .footer .item {
-    flex: 1;
     display: flex;
     justify-content: center;
 }

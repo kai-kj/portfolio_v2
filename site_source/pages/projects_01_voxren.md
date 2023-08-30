@@ -1,8 +1,11 @@
 Title: VoxRen
 Icon: logo.jpg
+Preview: assets/projects_voxren_car_gui.jpeg
+Tags: C Python OpenCL RayLib
 
 # VoxRen
-A voxel-based path tracer with support for real-time editing of the scene and multiple material types. By using GPU acceleration (via OpenCL), path-tracing can be done extremely quickly. The program also contains a full GUI that helps the user (me) easily modify the scene, and a Python module was also written so that a scene can also be easily created using scripts.
+
+A GPU path tracer for voxel environments written in C and OpenCL. Supports lambert, metal, and light source materials. Dielectric (transparent) materials are planned for future implementation. Also contains a full GUI that helps the user (me) easily modify the scene, and a Python module was also written so that a scene can also be easily created using scripts.
 
 All GPU-side code was written using OpenCL so that it would run on a wider range of hardware, like my laptop (with Intel integrated graphics), compared to CUDA. Most CPU-side code (the GUI and various other processes) was written in C, except the scene-generation code that was written in Python.
 

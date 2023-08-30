@@ -1,9 +1,11 @@
 Title: microcompute
 Icon: logo.jpg
+Preview: assets/projects_microcompute_demo.jpeg
+Tags: C Lua GLSL Vulkan
 
 # microcompute
 
-A small and simple library to use to run shaders in Vulkan. Currently work-in-progress.
+A small, simple library made to run SPIR-V compute shaders, implemented using Vulkan. Lua bindings are planned.
 
 The library will be used for any upcoming projects that require GPU computing. It simplifies the process of running computations on the GPU and is a wrapper around Vulkan.
 

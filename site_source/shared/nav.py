@@ -1,10 +1,7 @@
 import pathlib
 import markdown
 
-# so the linter doesn't complain about undefined variables
-src_dir = locals()["src_dir"]
-
-src_dir = pathlib.Path(src_dir)
+src_dir = pathlib.Path( locals()["src_dir"])
 
 index_file = list((src_dir / "pages").glob("index*"))[0]
 

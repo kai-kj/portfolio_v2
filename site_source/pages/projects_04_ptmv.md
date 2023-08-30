@@ -1,9 +1,11 @@
 Title: ptmv
 Icon: logo.jpg
+Preview: assets/projects_ptmv_demo.gif
+Tags: Python
 
 # ptmv
 
-A terminal app for viewing images and videos. It can also view videos directly from YouTube by using [yt-dlp](https://github.com/yt-dlp/yt-dlp).
+A terminal app that can display static images and play videos (both local and from YouTube) by using the Unicode character `▄` as a set of two pixels. All main features have been implemented, and it can be installed via PIP.
 
 The entire app is written in Python, and it is also very simple, compared to the other projects I've worked on. It has also been optimized in several ways, in order to still play videos at a high fps, even on a high "resolution".
 
