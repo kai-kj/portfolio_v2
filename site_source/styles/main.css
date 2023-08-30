@@ -5,16 +5,23 @@
 	--text-color: #cdcdcd;
 }
 
-html, body {
+html {
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: sans-serif;
-    margin: auto;
-    width: min(100%, 60rem);
+
+    width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column;
     overflow-y: auto;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    width: min(100%, 60rem);
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -142,6 +149,7 @@ pre > code {
 
 .footer {
     margin: 1rem;
+    padding-bottom: 1rem;
     flex: 0 0 0;
     display: flex;
     justify-content: space-evenly;
