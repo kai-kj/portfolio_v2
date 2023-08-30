@@ -4,6 +4,7 @@ import sys
 import markdown
 import tidylib
 import re
+from PIL import Image
 
 def get_src_dir():
     return (pathlib.Path() / sys.argv[1]).absolute()
@@ -20,12 +21,20 @@ def parse_file(in_file: pathlib.Path) -> (str, dict):
         exec(file_contents_raw, {}, local_vars)
         file_contents_raw = local_vars.get("output", "")
     
+    file_contents = re.sub(
+        r'!\[(\S*)\]\(assets/(\S*)\)',
+        r'<div class="thumbnail"><img alt="\1" src="thumbnails/\2"><a href="assets/\2">click to expand image</a></div>',
+        file_contents_raw
+    )
+
     md = markdown.Markdown(extensions = ["extra", "meta", "codehilite"])
-    file_contents = md.convert(file_contents_raw)
+    file_contents = md.convert(file_contents)
     metadata = md.Meta
 
+    # print(file_contents)
+
     if metadata.get("raw", ["false"])[0] == "true":
-        file_contents = re.match(r"^(.*:.*\n)*([\s\S]*)$", file_contents_raw).groups()[1].strip()
+        file_contents = re.match(r'^(.*:.*\n)*([\s\S]*)$', file_contents_raw).groups()[1].strip()
     
     return file_contents, metadata
 
@@ -35,7 +44,7 @@ def make_page(in_file: pathlib.Path, header: str, footer: str, nav: str) -> str:
     html_file = "<!doctype html>"
     html_file += "<html>"
     html_file += "<head>"
-    html_file += f"<title>{metadata.get('title', [''])[0]}</title>"
+    html_file += f"<title>Kai | {metadata.get('title', [''])[0]}</title>"
     html_file += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>"
     html_file += "<link rel=\"stylesheet\" href=\"styles/main.css\"/>"
     html_file += "<link rel=\"stylesheet\" href=\"styles/highlight.css\"/>"
@@ -51,10 +60,10 @@ def make_page(in_file: pathlib.Path, header: str, footer: str, nav: str) -> str:
     html_file += "</body>"
 
     # make external links (any link with https://) open in another tab
-    html_file = re.sub(r"<a([^>]*href=\"https?:\/\/[^\"]*\")>", r"<a \1 target=\"_blank\">", html_file)
+    html_file = re.sub(r'<a([^>]*href="https?:\/\/[^"]*")>', r'<a \1 target="_blank">', html_file)
 
     # replace .md and .py with .html if not external link
-    html_file = re.sub(r"href=\"((?!https?:\/\/)[^\"]*)(?:(?:.md)|(?:.py))\"", r"href=\1.html", html_file)
+    html_file = re.sub(r'href="((?!https?:\/\/)[^"]*)(?:(?:.md)|(?:.py))"', r'href=\1.html', html_file)
 
     return tidylib.tidy_document(html_file)[0]
 
@@ -73,13 +82,26 @@ if out_dir.exists():
 
 out_dir.mkdir()
 (out_dir / "assets").mkdir()
+(out_dir / "thumbnails").mkdir()
 (out_dir / "styles").mkdir()
 
-# copy assets (TODO: thumbnails)
 for src_file in (src_dir / "assets").glob("*"):
-    out_file = out_dir / "assets" / src_file.name
-    out_file.touch()
-    out_file.write_bytes(src_file.read_bytes())
+    out_file_orig = out_dir / "assets" / src_file.name
+    out_file_thumb = out_dir / "thumbnails" / src_file.name
+
+    try:
+        image = Image.open(src_file)
+        if image.size[0] > 1280 or image.size[1] > 720:
+            scale = min(1280 / image.size[0], 720 / image.size[1])
+            image.resize((int(image.size[0] * scale), int(image.size[1] * scale)))
+        image.save(out_file_thumb)
+    except:
+        out_file_thumb.touch()
+        out_file_thumb.write_bytes(src_file.read_bytes())
+
+    out_file_orig.touch()
+    out_file_orig.write_bytes(src_file.read_bytes())
+
 
 # copy styles
 for src_file in (src_dir / "styles").glob("*"):

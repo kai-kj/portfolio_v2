@@ -31,6 +31,27 @@ img {
     margin: auto;
 }
 
+.thumbnail {
+    position: relative;
+    margin: 1rem 0;
+}
+
+.thumbnail > a {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.thumbnail:hover > img {
+    opacity: 0.4;
+}
+
+.thumbnail:hover > a {
+    display: block;
+}
+
 code {
     background-color: var(--surface-color-2);
     border-radius: 0.2rem;
