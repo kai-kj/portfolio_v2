@@ -5,6 +5,11 @@ Preview: assets/projects_doc_demo.png
 Tags: Python
 Pos: 01_06
 
+<div class="right_align">
+    <img class="icon" src="assets/icon_github.svg" alt="github"/>
+    <a href="https://gist.github.com/kal39/26e870d9436c06b2fece78f19a755fbc">code</a>
+</div>
+
 # `mini_doc_gen.py`
 
 A tiny Python script (only 30 loc) that, given a C file, generates documentation for it. The output is a markdown file, making it ideal for use with GitHub. The full code is shown below: 

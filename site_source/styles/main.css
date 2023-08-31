@@ -59,6 +59,18 @@ img {
     display: block;
 }
 
+.right_align {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    vertical-align: middle;
+    margin: 0 0.25rem;
+}
+
 code {
     background-color: var(--surface-color-2);
     border-radius: 0.2rem;
@@ -158,13 +170,6 @@ pre > code {
 .footer .item {
     display: flex;
     justify-content: center;
-}
-
-.footer .item .icon {
-    width: 1.2rem;
-    height: 1.2rem;
-    vertical-align: middle;
-    margin: 0 0.25rem;
 }
 
 @media (max-width: 40rem) {

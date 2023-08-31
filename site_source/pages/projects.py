@@ -5,8 +5,9 @@ import re
 src_dir = pathlib.Path(globals()["src_dir"])
 
 src_files = list((src_dir / "pages").glob("*"))
-src_files = [f for f in src_files if "projects_" in f.name]
-src_files.sort()
+src_files = [(f, (globals()["parse_file"])(f)[1]) for f in src_files if "projects_" in f.name]
+src_files.sort(key=lambda f: f[1].get('pos', [''])[0])
+src_files = [f[0] for f in src_files]
 
 output = "Title: Projects\n"
 output += "Description: A list of projects I've worked on in my free time.\n"
@@ -26,7 +27,8 @@ for src_file in src_files:
     link = src_file.name.replace(".md", ".html")
 
     output += "\n"
-    output += f"<h2 style=\"text-align: center;\"><a href=\"{link}\">{title}</h2>\n\n"
+    output += f"## [{title}]({link})\n\n"
+    output += f"![preview]({preview})\n\n"
 
     if len(tech) != 0:
         output += f"<div style=\"display: flex; justify-content: center;\">"
@@ -34,5 +36,5 @@ for src_file in src_files:
             output += f"<code>{t}</code>&nbsp;"
         output += "</div>\n\n"
 
-    output += f"![preview]({preview})\n\n"
     output += f"{desc}\n\n"
+    output += f"<div class=\"right_align\"><a href=\"{link}\">[click here for details]</a></div>"

@@ -5,6 +5,14 @@ Preview: assets/projects_ptmv_demo.gif
 Tags: Python
 Pos: 01_04
 
+<div class="right_align">
+    <img class="icon" src="assets/icon_download.svg" alt="github"/>
+    <a href="https://pypi.org/project/ptmv/">PyPI</a>
+    &emsp;
+    <img class="icon" src="assets/icon_github.svg" alt="github"/>
+    <a href="https://github.com/kal39/ptmv">code</a>
+</div>
+
 # ptmv
 
 A terminal app that can display static images and play videos (both local and from YouTube) by using the Unicode character `▄` as a set of two pixels. All main features have been implemented, and it can be installed via PIP.

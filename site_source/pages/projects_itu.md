@@ -5,6 +5,11 @@ Preview: assets/projects_itu_demo.jpeg
 Tags: C Python
 Pos: 01_05
 
+<div class="right_align">
+    <img class="icon" src="assets/icon_github.svg" alt="github"/>
+    <a href="https://github.com/kal39/itu">code</a>
+</div>
+
 # imageToUnicode
 
 A C / Python library that extends the idea behind [ptmv](projects_ptmv.md), and it aims to display more complex images using unicode characters. I am eventually planning to improve ptmv using this library. A Python interface is planned.

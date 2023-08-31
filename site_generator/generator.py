@@ -40,8 +40,6 @@ def parse_file(in_file: pathlib.Path) -> (str, dict):
 def make_page(in_file: pathlib.Path, header: str, footer: str, nav: str) -> str:
     content, metadata = parse_file(in_file)
 
-    print(metadata.get('description', [''])[0])
-
     html_file = "<!doctype html>"
     html_file += "<html>"
     html_file += "<head>"

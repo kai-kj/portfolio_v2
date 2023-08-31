@@ -5,6 +5,14 @@ Preview: assets/projects_doi_overview.png
 Tags: HTML CSS JavaScript
 Pos: 01_03
 
+<div class="right_align">
+    <img class="icon" src="assets/icon_pointer.svg" alt="github"/>
+    <a href="https://doi.kaikitagawajones.com/">try it</a>
+    &emsp;
+    <img class="icon" src="assets/icon_github.svg" alt="github"/>
+    <a href="https://github.com/kal39/doi_lookup">code</a>
+</div>
+
 # DOI Lookup
 
 A web app to look up research articles. In addition to providing basic information about articles, the main focus of the tool is to show the relationship between articles. Available at [doi.kaikitagawajones.com](https://doi.kaikitagawajones.com).

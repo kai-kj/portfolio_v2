@@ -11,11 +11,15 @@ As part of an internship, I'm currently working two days a week at [I-Med Techno
 
 ## Interests
 
-- **Programming**  
-  In my free time, I mostly code in C, Python, Lua, and various other languages, depending on the goal. The topics and most interested in are image processing, GPU computing, and also making small utility tools. See [here](projects.md) for a list of projects.
+- **[Programming](projects.md)**  
+  In my free time, I mostly code in C, Python, Lua, and various other languages, depending on the goal. The topics and most interested in are image processing, GPU computing, and also making small utility tools.
 
-- **Photography**  
-  Mostly landscape and birds photos, see [here](photos.md) for some examples.
+  <div class="right_align"><a href="projects.md">[click here for details]</a></div>
+
+- **[Photography](projects.md)**  
+  I've take many photos in various contries over the last few years. I mostly take landscape photos, and photos of plants and animals.
+
+  <div class="right_align"><a href="photos.md">[click here for details]</a></div>
 
 - **Art**  
   I like to paint landscapes, generally using oil paint, water paint, or just black pen.

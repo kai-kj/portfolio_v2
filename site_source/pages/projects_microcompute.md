@@ -5,6 +5,14 @@ Preview: assets/projects_microcompute_demo.jpeg
 Tags: C Lua GLSL Vulkan
 Pos: 01_02
 
+<div class="right_align">
+    <img class="icon" src="assets/icon_book.svg" alt="github"/>
+    <a href="https://github.com/kal39/microcompute/blob/main/doc.md">read docs</a>
+    &emsp;
+    <img class="icon" src="assets/icon_github.svg" alt="github"/>
+    <a href="https://github.com/kal39/microcompute">code</a>
+</div>
+
 # microcompute
 
 A small, simple GPGPU library made to run SPIR-V compute shaders, implemented using Vulkan. Lua bindings are planned.
