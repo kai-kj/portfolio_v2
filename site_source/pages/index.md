@@ -32,7 +32,7 @@ As part of an internship, I'm currently working two days a week at [I-Med Techno
 - Github: [kal39](https://github.com/kal39)
 - Email: [kaikitagawajones@gmail.com](mailto:kaikitagawajones@gmail.com)
 
-# About this website
+## About this website
 
 This website is made with zero JavaScript, and the content is generated from Markdown files, using a Python script. The source code for this website can be found [here](https://github.com/kal39/portfolio_v2).
 
