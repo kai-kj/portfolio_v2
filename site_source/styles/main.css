@@ -26,9 +26,6 @@ body {
 
 a {
 	color: var(--text-color);
-    text-decoration: none;
-    border-bottom: 1px solid var(--text-color);
-    padding-bottom: 1px;
 }
 
 img {
@@ -46,6 +43,7 @@ img {
 .thumbnail > a {
     display: none;
     position: absolute;
+    padding: 2rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

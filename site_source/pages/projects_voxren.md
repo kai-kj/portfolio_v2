@@ -12,11 +12,11 @@ Pos: 01_01
 
 # VoxRen
 
-A GPU path tracer for voxel environments written in C and OpenCL. Supports lambert, metal, and light source materials. Dielectric (transparent) materials are planned for future implementation. Also contains a full GUI that helps the user (me) easily modify the scene, and a Python module was also written so that a scene can also be easily created using scripts.
+A GPU path tracer for voxel environments written in C and OpenCL. Supports lambert, metal, and light source materials. Dielectric (transparent) materials are planned for future implementation. Contains a full GUI that helps the user easily modify the scene, and a Python module was written so that a scene can be easily created using scripts.
 
 All GPU-side code was written using OpenCL so that it would run on a wider range of hardware, like my laptop (with Intel integrated graphics), compared to CUDA. Most CPU-side code (the GUI and various other processes) was written in C, except the scene-generation code that was written in Python.
 
-The GUI was implemented using [RayLib](https://www.raylib.com/), a library that provides a large number of graphics-related features aimed at game development. All GUI components (windows, buttons, text inputs) were implemented from scratch using basic features from the library. Although the GUI is far from perfect, building an entire GUI system from scratch taught me a lot about GUIs and graphics in general. This is a screenshot of the GUI in action: 
+The GUI was implemented using [RayLib](https://www.raylib.com/), a library that provides a large number of features aimed at game development. All GUI components (windows, buttons, text inputs) were implemented from scratch using basic features from the library. Although the GUI is far from perfect, building an entire GUI system from scratch taught me a lot about GUIs and graphics in general. This is a screenshot of the GUI in action: 
 
 ![GUI](assets/projects_voxren_iberia_gui.jpeg)
 

@@ -12,7 +12,7 @@ Pos: 01_05
 
 # imageToUnicode
 
-A C / Python library that extends the idea behind [ptmv](projects_ptmv.md), and it aims to display more complex images using unicode characters. I am eventually planning to improve ptmv using this library. A Python interface is planned.
+A C / Python library that extends the idea behind [ptmv](projects_ptmv.md), and it aims to display more complex images using unicode characters. I am eventually planning to improve ptmv using this library. A Python interface is planned to achieve this.
 
 The main difference between the graphics used in ptmv and imageToUnicode is that while ptmv only uses the Unicode character `▄`, imageToUnicode uses the following 19 characters:
 
@@ -26,11 +26,9 @@ The main difference between the graphics used in ptmv and imageToUnicode is that
 
 Using these characters, imageToUnicode can find the best match for a particular cluster of pixels, improving the accuracy of the final output.
 
-Because the final goal of this project is to improve ptmv, performance is an important factor, as ptmv is also used to play videos. This is the main reason that the main algorithm is written in C. As well as being much faster than Python, C also provides direct control over memory, greatly reducing the number of wasteful operations performed. In addition, C supports true multithreading, which is the main method I used to improve performance.
+Because the final goal of this project is to improve ptmv, performance is an important factor, as ptmv is also used to play videos. This is the main reason that the main algorithm is written in C. As well as being much faster than Python, C also provides direct control over memory, greatly reducing the number of wasteful operations performed.
 
-Multithreading was easy to implement for each row of the output image, as this has a good balance between the number of threads and the time it takes to initialize a thread.
-
-It is also possible to choose the level of detail wanted in the final output. This is done by restricting the number of characters allowed to be used from 19 to some specified number. The lowest level of detail uses a single character `▄`, thus outputting the same image as the current implementation of ptmv.
+It is possible to choose the level of detail wanted in the final output. This is done by restricting the number of characters allowed to be used from 19 to some specified number. The lowest level of detail uses a single character `▄`, thus outputting the same image as the current implementation of ptmv.
 
 Here is a comparison between detail levels:
 
@@ -52,7 +50,7 @@ detail = 6 (19 character used)
 
 ![detail level 6](assets/projects_itu_detail_6.png)
 
-As shown, at `detail = 6`, the image is extremely sharp, despite the entire image being made up of characters. Although the detail level can be lowered, with the optimizations currently implemented, the imageToUnicode can process images at fps suitable for ptmv.
+As shown, at `detail = 6`, the image is extremely sharp, despite the entire image being made up of characters. Although the detail level can be lowered, with the optimizations currently implemented, imageToUnicode can process images at fps suitable for ptmv.
 
 Finally, here is what the image shown above (`detail = 6`) looks like without any colors: 
 

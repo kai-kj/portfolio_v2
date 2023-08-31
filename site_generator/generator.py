@@ -24,7 +24,7 @@ def parse_file(in_file: pathlib.Path) -> (str, dict):
     
     file_contents = re.sub(
         r'!\[([^\]]*)\]\(assets/(\S*)\)',
-        r'<div class="thumbnail"><img alt="\1" src="thumbnails/\2"><a href="assets/\2">click to expand image</a></div>',
+        r'<div class="thumbnail"><img alt="\1" src="thumbnails/\2"><a href="assets/\2">click to expand</a></div>',
         file_contents_raw
     )
 
