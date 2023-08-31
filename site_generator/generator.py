@@ -17,8 +17,9 @@ def parse_file(in_file: pathlib.Path) -> (str, dict):
     file_contents_raw = in_file.read_text()
 
     if file_type == ".py":
-        local_vars = {"src_dir": str(get_src_dir()), "parse_file": parse_file}
-        exec(file_contents_raw, {}, local_vars)
+        global_vars = {"src_dir": str(get_src_dir()), "parse_file": parse_file}
+        local_vars = {}
+        exec(file_contents_raw, global_vars, local_vars)
         file_contents_raw = local_vars.get("output", "")
     
     file_contents = re.sub(
@@ -85,7 +86,13 @@ out_dir.mkdir()
 (out_dir / "thumbnails").mkdir()
 (out_dir / "styles").mkdir()
 
-for src_file in (src_dir / "assets").glob("*"):
+
+# copy assets
+src_files = list((src_dir / "assets").glob("*"))
+
+for i, src_file in enumerate(src_files):
+    print(f"[asset {i + 1}/{len(src_files)}]: {src_file}")
+
     out_file_orig = out_dir / "assets" / src_file.name
     out_file_thumb = out_dir / "thumbnails" / src_file.name
 
@@ -104,7 +111,11 @@ for src_file in (src_dir / "assets").glob("*"):
 
 
 # copy styles
-for src_file in (src_dir / "styles").glob("*"):
+src_files = list((src_dir / "styles").glob("*"))
+
+for i, src_file in enumerate(src_files):
+    print(f"[style {i + 1}/{len(src_files)}]: {src_file}")
+
     out_file = out_dir / "styles" / src_file.name
     out_file.touch()
     out_file.write_text(src_file.read_text())
@@ -114,10 +125,12 @@ footer = parse_file(next((src_dir / "shared").glob("footer.*")))[0]
 nav = parse_file(next((src_dir / "shared").glob("nav.*")))[0]
 
 # convert and copy pages
-for src_file in (src_dir / "pages").glob("*"):
-    out_file = (out_dir / src_file.name).with_suffix(".html")
-    print(f"  parsing {out_file}")
+src_files = list((src_dir / "pages").glob("*"))
 
+for i, src_file in enumerate(src_files):
+    print(f"[page {i + 1}/{len(src_files)}]: {src_file}")
+
+    out_file = (out_dir / src_file.name).with_suffix(".html")
     out_file_contents = make_page(src_file, header, footer, nav)
     out_file.touch()
     out_file.write_text(out_file_contents)

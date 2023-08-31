@@ -2,6 +2,7 @@ Title: imageToUnicode
 Icon: logo.jpg
 Preview: assets/projects_itu_demo.jpeg
 Tags: C Python
+Pos: 01_05
 
 # imageToUnicode
 

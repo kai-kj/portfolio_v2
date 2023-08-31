@@ -2,6 +2,7 @@ Title: DOI Lookup
 Icon: logo.jpg
 Preview: assets/projects_doi_overview.png
 Tags: HTML CSS JavaScript
+Pos: 01_03
 
 # DOI Lookup
 

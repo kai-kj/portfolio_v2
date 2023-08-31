@@ -2,14 +2,15 @@ import pathlib
 import markdown
 import re
 
-src_dir = pathlib.Path(locals()["src_dir"])
+src_dir = pathlib.Path(globals()["src_dir"])
 
 src_files = list((src_dir / "pages").glob("*"))
 src_files = [f for f in src_files if "projects_" in f.name]
 src_files.sort()
 
 output = "Title: Projects\n"
-output += "Icon: logo.jpg\n\n"
+output += "Icon: logo.jpg\n"
+output += "Pos: 01_00\n\n"
 output += "# Projects\n"
 output += "Over the last few years, I've worked on several programming projects in my free time. The code for all these projects is open source and available on [GitHub](https://github.com/kal39)."
 

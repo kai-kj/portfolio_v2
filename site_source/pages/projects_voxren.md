@@ -2,6 +2,7 @@ Title: VoxRen
 Icon: logo.jpg
 Preview: assets/projects_voxren_car_gui.jpeg
 Tags: C Python OpenCL RayLib
+Pos: 01_01
 
 # VoxRen
 
