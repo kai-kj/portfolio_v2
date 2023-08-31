@@ -27,7 +27,7 @@ for src_file in src_files:
     link = src_file.name.replace(".md", ".html")
 
     output += "\n"
-    output += f"## [{title}]({link})\n\n"
+    output += f"## {title}\n\n"
     output += f"![preview]({preview})\n\n"
 
     if len(tech) != 0:
@@ -37,4 +37,4 @@ for src_file in src_files:
         output += "</div>\n\n"
 
     output += f"{desc}\n\n"
-    output += f"<div class=\"right_align\"><a href=\"{link}\">[click here for details]</a></div>"
+    output += f"<div class=\"right_align\"><a href=\"{link}\"><b>click here for details</b></a></div>"

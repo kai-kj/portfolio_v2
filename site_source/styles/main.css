@@ -25,7 +25,12 @@ body {
 }
 
 a {
-	color: var(--text-color);
+	color: lightskyblue;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
 }
 
 img {
