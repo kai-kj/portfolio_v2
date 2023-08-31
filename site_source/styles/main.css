@@ -55,7 +55,7 @@ img {
 }
 
 .thumbnail:hover > img {
-    opacity: 0.4;
+    opacity: 0.1;
 }
 
 .thumbnail:hover > a {
