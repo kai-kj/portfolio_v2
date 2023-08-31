@@ -1,4 +1,5 @@
 Title: imageToUnicode
+Description: A C library to display complex images in the terminal.
 Icon: logo.jpg
 Preview: assets/projects_itu_demo.jpeg
 Tags: C Python
@@ -6,7 +7,7 @@ Pos: 01_05
 
 # imageToUnicode
 
-A C / Python library that extends the idea behind ptmv, and it aims to display more complex images using unicode characters. I am eventually planning to improve ptmv using this library. A Python interface is planned.
+A C / Python library that extends the idea behind [ptmv](projects_ptmv.md), and it aims to display more complex images using unicode characters. I am eventually planning to improve ptmv using this library. A Python interface is planned.
 
 The main difference between the graphics used in ptmv and imageToUnicode is that while ptmv only uses the Unicode character `▄`, imageToUnicode uses the following 19 characters:
 

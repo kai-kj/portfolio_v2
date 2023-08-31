@@ -1,4 +1,5 @@
 Title: mini_doc_gen.py
+Description: A tiny Python script that generates documentation in Markdown.
 Icon: logo.jpg
 Preview: assets/projects_doc_demo.png
 Tags: Python

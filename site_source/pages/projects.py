@@ -9,6 +9,7 @@ src_files = [f for f in src_files if "projects_" in f.name]
 src_files.sort()
 
 output = "Title: Projects\n"
+output += "Description: A list of projects I've worked on in my free time.\n"
 output += "Icon: logo.jpg\n"
 output += "Pos: 01_00\n\n"
 output += "# Projects\n"

@@ -1,4 +1,5 @@
 Title: DOI Lookup
+Description: A web app to look up research articles, and see the relationships between them.
 Icon: logo.jpg
 Preview: assets/projects_doi_overview.png
 Tags: HTML CSS JavaScript

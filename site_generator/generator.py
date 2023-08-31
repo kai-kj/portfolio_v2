@@ -32,8 +32,6 @@ def parse_file(in_file: pathlib.Path) -> (str, dict):
     file_contents = md.convert(file_contents)
     metadata = md.Meta
 
-    # print(file_contents)
-
     if metadata.get("raw", ["false"])[0] == "true":
         file_contents = re.match(r'^(.*:.*\n)*([\s\S]*)$', file_contents_raw).groups()[1].strip()
     
@@ -42,10 +40,13 @@ def parse_file(in_file: pathlib.Path) -> (str, dict):
 def make_page(in_file: pathlib.Path, header: str, footer: str, nav: str) -> str:
     content, metadata = parse_file(in_file)
 
+    print(metadata.get('description', [''])[0])
+
     html_file = "<!doctype html>"
     html_file += "<html>"
     html_file += "<head>"
-    html_file += f"<title>Kai | {metadata.get('title', [''])[0]}</title>"
+    html_file += f"<title>{metadata.get('title', [''])[0]} | Kai Kitagawa-Jones</title>"
+    html_file += f"<meta name=\"description\" content=\"{metadata.get('description', [''])[0]}\">"
     html_file += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>"
     html_file += "<link rel=\"stylesheet\" href=\"styles/main.css\"/>"
     html_file += "<link rel=\"stylesheet\" href=\"styles/highlight.css\"/>"

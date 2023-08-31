@@ -7,10 +7,11 @@ src_files = [f for f in src_files if "photos_" in f.name]
 src_files.sort()
 
 output = "Title: Photos\n"
+output += "Description: A collection of photos I've taken in various countries.\n"
 output += "Icon: logo.jpg\n"
 output += "Pos: 02_00\n\n"
 output += "# Photos\n\n"
-output += "A collection of photos I've taken in several countries.\n\n"
+output += "A collection of photos I've taken in various countries.\n\n"
 
 for src_file in src_files:
     title = "/".join(src_file.name.split("_")[1].split("-")[:3])

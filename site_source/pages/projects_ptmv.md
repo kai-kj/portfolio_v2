@@ -1,4 +1,5 @@
 Title: ptmv
+Description: A terminal app that can display static images and play videos.
 Icon: logo.jpg
 Preview: assets/projects_ptmv_demo.gif
 Tags: Python

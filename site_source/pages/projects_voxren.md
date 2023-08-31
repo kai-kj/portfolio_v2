@@ -1,4 +1,5 @@
 Title: VoxRen
+Description: A GPU path tracer for voxel environments written in C and OpenCL.
 Icon: logo.jpg
 Preview: assets/projects_voxren_car_gui.jpeg
 Tags: C Python OpenCL RayLib
