@@ -1,11 +1,11 @@
 Title: About me
-Description: I study Data Science and AI at Maastricht University, and I research image processing at I-Med Technology.
+Description: I study Data Science and AI at Maastricht University, and I'm researching image processing at I-Med Technology.
 Icon: logo.jpg
 Pos: 00_00
 
 # About me
 
-I was born in the UK, and I've also lived in Spain, Japan, and the Netherlands, and I can speak English, Spanish, and Japanese. I'm currently studying the [Data Science and AI](https://curriculum.maastrichtuniversity.nl/education/bachelor/data-science-and-artificial-intelligence) bachelor at [Maastricht University](https://www.maastrichtuniversity.nl/).
+I was born in the UK, and I've lived in Spain, Japan, and the Netherlands. I can speak English, Spanish, and Japanese. I'm currently studying the [Data Science and AI](https://curriculum.maastrichtuniversity.nl/education/bachelor/data-science-and-artificial-intelligence) bachelor at [Maastricht University](https://www.maastrichtuniversity.nl/).
 
 As part of an internship, I'm currently working two days a week at [I-Med Technology](https://www.i-medtech.nl/), a company developing a digital surgical loupe. At I-Med, I develop and implement various image processing techniques for the digital loupe.
 
