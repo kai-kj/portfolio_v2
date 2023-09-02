@@ -96,6 +96,8 @@ for i, src_file in enumerate(src_files):
     out_file_thumb = out_dir / "thumbnails" / src_file.name
 
     try:
+        assert(src_file.suffix != ".gif")
+
         image = ImageOps.exif_transpose(Image.open(src_file))
         if image.size[0] > 640 or image.size[1] > 480:
             scale = min(640 / image.size[0], 480 / image.size[1])
