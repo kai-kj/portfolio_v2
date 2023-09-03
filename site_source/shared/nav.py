@@ -9,8 +9,6 @@ src_files = [(f, (globals()["parse_file"])(f)[1]) for f in src_files]
 src_files.sort(key=lambda f: f[1].get('pos', [''])[0])
 
 output = "raw: true\n"
-output += "<div class=\"title\">Pages</div>"
-output += "<hr>"
 
 for f in src_files:
     if f[1].get("pos", [""])[0] == "": continue

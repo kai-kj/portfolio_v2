@@ -145,13 +145,8 @@ pre > code {
     }
 }
 
-.body .nav .title {
-    font-weight: bold;
-    text-align: center;
-}
-
 .body .nav .item {
-    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
 }
 
 .body .content {

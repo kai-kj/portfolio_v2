@@ -5,21 +5,17 @@ Pos: 00_00
 
 # About me
 
-I was born in the UK, and I've lived in Spain, Japan, and the Netherlands. I can speak English, Spanish, and Japanese. I'm currently studying the [Data Science and AI](https://curriculum.maastrichtuniversity.nl/education/bachelor/data-science-and-artificial-intelligence) bachelor at [Maastricht University](https://www.maastrichtuniversity.nl/).
+I'm currently studying the [Data Science and AI](https://curriculum.maastrichtuniversity.nl/education/bachelor/data-science-and-artificial-intelligence) bachelor’s at [Maastricht University](https://www.maastrichtuniversity.nl/). I’m also doing an internship with [I-Med Technology](https://www.i-medtech.nl/), where I’m developing and implementing various image processing techniques for a digital surgical loupe.
 
-As part of an internship, I'm currently working two days a week at [I-Med Technology](https://www.i-medtech.nl/), a company developing a digital surgical loupe. At I-Med, I develop and implement various image processing techniques for the digital loupe.
+I’m half Japanese, half British, and I've lived in the UK, Japan, Spain, and the Netherlands. I can speak English, Spanish, and Japanese.
 
 ## Interests
 
-- **Programming**  
+- **[Programming](projects.md)**  
   In my free time, I mostly code in C, Python, Lua, and various other languages, depending on the goal. The topics and most interested in are image processing, GPU computing, and also making small utility tools.
 
-  <div class="right_align"><a href="projects.md"><b>click here for details</b></a></div>
-
-- **Photography**  
+- **[Photography](photos.md)**  
   I've take many photos in various contries over the last few years. I mostly take landscape photos, and photos of plants and animals.
-
-  <div class="right_align"><a href="photos.md"><b>click here for details</b></a></div>
 
 - **Art**  
   I like to paint landscapes, generally using oil paint, water paint, or just black pen.
@@ -35,5 +31,3 @@ As part of an internship, I'm currently working two days a week at [I-Med Techno
 ## About this website
 
 This website is made with zero JavaScript, and the content is generated from Markdown files, using a Python script. The source code for this website can be found [here](https://github.com/kal39/portfolio_v2).
-
-For a website with I made that does contain a lot of JavaScript, see [here](projects_doi.md).

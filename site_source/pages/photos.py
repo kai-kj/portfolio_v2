@@ -4,7 +4,7 @@ src_dir = pathlib.Path(globals()["src_dir"])
 
 src_files = list((src_dir / "assets").glob("*"))
 src_files = [f for f in src_files if "photos_" in f.name]
-src_files.sort()
+src_files.sort(reverse=True)
 
 output = "Title: Photos\n"
 output += "Description: A collection of photos I've taken in various countries.\n"
