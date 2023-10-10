@@ -28,6 +28,6 @@ I’m half Japanese, half British, and I've lived in the UK, Japan, Spain, and t
 - Github: [kal39](https://github.com/kal39)
 - Email: [kaikitagawajones@gmail.com](mailto:kaikitagawajones@gmail.com)
 
-## About this website
+<br>
 
-This website is made with zero JavaScript, and the content is generated from Markdown files, using a Python script. The source code for this website can be found [here](https://github.com/kal39/portfolio_v2).
+Source code for this website can be found [here](https://github.com/kal39/portfolio_v2).
