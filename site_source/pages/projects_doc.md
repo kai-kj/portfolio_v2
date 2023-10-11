@@ -12,7 +12,9 @@ Pos: 01_06
 
 # `mini_doc_gen.py`
 
-A tiny Python script (only 30 loc) that, given a C file, generates documentation for it. The output is a markdown file, making it ideal for use with GitHub. The full code is shown below: 
+A tiny Python script (only 30 loc) that, given a C file, generates documentation for it. The output is a markdown file, making it ideal for use with GitHub.
+
+The full code is shown below: 
 
 ``` python
 import sys, re
