@@ -6,11 +6,14 @@ import tidylib
 import re
 from PIL import Image, ImageOps
 
+
 def get_src_dir():
     return (pathlib.Path() / sys.argv[1]).absolute()
 
+
 def get_out_dir():
     return (pathlib.Path() / sys.argv[2]).absolute()
+
 
 def parse_file(in_file: pathlib.Path) -> (str, dict):
     file_type = in_file.suffix
@@ -21,7 +24,7 @@ def parse_file(in_file: pathlib.Path) -> (str, dict):
         local_vars = {}
         exec(file_contents_raw, global_vars, local_vars)
         file_contents_raw = local_vars.get("output", "")
-    
+
     # Add click to expand
     file_contents = re.sub(
         r'!\[([^\]]*)\]\(assets/(\S*)\)',
@@ -29,14 +32,17 @@ def parse_file(in_file: pathlib.Path) -> (str, dict):
         file_contents_raw
     )
 
-    md = markdown.Markdown(extensions = ["extra", "meta", "codehilite"])
+    md = markdown.Markdown(extensions=["extra", "meta", "codehilite"])
     file_contents = md.convert(file_contents)
     metadata = md.Meta
 
     if metadata.get("raw", ["false"])[0] == "true":
-        file_contents = re.match(r'^(.*:.*\n)*([\s\S]*)$', file_contents_raw).groups()[1].strip()
-    
+        file_contents = re.match(
+            r'^(.*:.*\n)*([\s\S]*)$', file_contents_raw
+        ).groups()[1].strip()
+
     return file_contents, metadata
+
 
 def make_page(in_file: pathlib.Path, header: str, footer: str, nav: str) -> str:
     content, metadata = parse_file(in_file)
@@ -61,12 +67,21 @@ def make_page(in_file: pathlib.Path, header: str, footer: str, nav: str) -> str:
     html_file += "</body>"
 
     # make external links (any link with https://) open in another tab
-    html_file = re.sub(r'<a([^>]*href="https?:\/\/[^"]*")>', r'<a \1 target="_blank">', html_file)
+    html_file = re.sub(
+        r'<a([^>]*href="https?:\/\/[^"]*")>',
+        r'<a \1 target="_blank">',
+        html_file
+    )
 
     # replace .md and .py with .html if not external link
-    html_file = re.sub(r'href="((?!https?:\/\/)[^"]*)(?:(?:.md)|(?:.py))"', r'href=\1.html', html_file)
+    html_file = re.sub(
+        r'href="((?!https?:\/\/)[^"]*)(?:(?:.md)|(?:.py))"',
+        r'href=\1.html',
+        html_file
+    )
 
     return tidylib.tidy_document(html_file)[0]
+
 
 if len(sys.argv) != 3:
     print("ERROR: usage: generator.py [source dir] [out dir]")
@@ -84,8 +99,8 @@ if out_dir.exists():
 out_dir.mkdir()
 (out_dir / "assets").mkdir()
 (out_dir / "thumbnails").mkdir()
+(out_dir / "files").mkdir()
 (out_dir / "styles").mkdir()
-
 
 # copy assets
 src_files = list((src_dir / "assets").glob("*"))
@@ -97,12 +112,14 @@ for i, src_file in enumerate(src_files):
     out_file_thumb = out_dir / "thumbnails" / src_file.name
 
     try:
-        assert(src_file.suffix != ".gif")
+        assert (src_file.suffix != ".gif")
 
         image = ImageOps.exif_transpose(Image.open(src_file))
         if image.size[0] > 640 or image.size[1] > 480:
             scale = min(640 / image.size[0], 480 / image.size[1])
-            image.resize((int(image.size[0] * scale), int(image.size[1] * scale)))
+            image.resize(
+                (int(image.size[0] * scale), int(image.size[1] * scale))
+            )
         image.save(out_file_thumb, quality=60)
     except:
         out_file_thumb.touch()
@@ -111,6 +128,15 @@ for i, src_file in enumerate(src_files):
     out_file_orig.touch()
     out_file_orig.write_bytes(src_file.read_bytes())
 
+# copy files
+src_files = list((src_dir / "files").glob("*"))
+
+for i, src_file in enumerate(src_files):
+    print(f"[file {i + 1}/{len(src_files)}]: {src_file}")
+
+    out_file = out_dir / "files" / src_file.name
+    out_file.touch()
+    out_file.write_bytes(src_file.read_bytes())
 
 # copy styles
 src_files = list((src_dir / "styles").glob("*"))
@@ -136,4 +162,3 @@ for i, src_file in enumerate(src_files):
     out_file_contents = make_page(src_file, header, footer, nav)
     out_file.touch()
     out_file.write_text(out_file_contents)
-
