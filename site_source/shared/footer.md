@@ -1,6 +1,5 @@
 raw: true
 
-
 <div class="item">
     <img class="icon" src="assets/icon_github.svg" alt="github"/>
     <a href="https://github.com/kal39">kal39</a>

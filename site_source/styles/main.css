@@ -1,8 +1,8 @@
 :root {
-	--background-color: #121212;
-	--surface-color: #222222;
+    --background-color: #121212;
+    --surface-color: #222222;
     --surface-color-2: #353535;
-	--text-color: #cdcdcd;
+    --text-color: #cdcdcd;
 }
 
 html {
@@ -24,12 +24,20 @@ body {
     flex-direction: column;
 }
 
+.expanded-image-body {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+}
+
 a {
-	color: steelblue;
+    color: steelblue;
     text-decoration: none;
 }
 
-a:hover{
+a:hover {
     text-decoration: underline;
 }
 
@@ -40,12 +48,19 @@ img {
     margin: auto;
 }
 
+.expanded-image-body>img {
+    border-radius: 0%;
+    max-width: 100%;
+    max-height: calc(100% - 8rem);
+    width: auto;
+}
+
 .thumbnail {
     position: relative;
     margin: 1rem 0;
 }
 
-.thumbnail > a {
+.thumbnail>a {
     display: none;
     position: absolute;
     padding: 2rem;
@@ -54,11 +69,11 @@ img {
     transform: translate(-50%, -50%);
 }
 
-.thumbnail:hover > img {
+.thumbnail:hover>img {
     opacity: 0.1;
 }
 
-.thumbnail:hover > a {
+.thumbnail:hover>a {
     display: block;
 }
 
@@ -80,7 +95,7 @@ code {
     padding: 0.1rem;
 }
 
-pre > code {
+pre>code {
     display: block;
     border-radius: 0.5rem;
     padding: 0.5rem;
@@ -168,6 +183,17 @@ pre > code {
 .footer .item {
     display: flex;
     justify-content: center;
+}
+
+.back-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.back-button>img {
+    width: 2rem;
+    height: 2rem;
 }
 
 @media (max-width: 40rem) {
