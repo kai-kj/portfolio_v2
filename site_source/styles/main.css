@@ -75,6 +75,7 @@ img {
 
 .thumbnail:hover>a {
     display: block;
+    white-space: nowrap;
 }
 
 .right_align {
