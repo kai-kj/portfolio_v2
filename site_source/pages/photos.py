@@ -30,7 +30,7 @@ for src_file in src_files:
 
     output += f"""
         <div class="thumbnail">
-            <img alt="image from {date}" src="assets/{src_file.name}"><a href="expanded_images/{src_file.name}.html">click to expand</a>
+            <img alt="image from {date}" src="thumbnails/{src_file.name}"><a href="expanded_images/{src_file.name}.html">click to expand</a>
         </div>\n
     """
 
