@@ -34,4 +34,4 @@ for src_file in src_files:
         </div>\n
     """
 
-    output += f"{unicode_flag(country_code)} {country_name}, {date}\n<br><br>\n"
+    output += f"<div align=\"right\">{unicode_flag(country_code)} {country_name}, {date}</div>\n<br><br>\n"
