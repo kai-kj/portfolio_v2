@@ -15,4 +15,4 @@ for f in src_files:
 
     indent = len(f[0].name.split("_")) - 1
     title = f[1].get('title', [''])[0]
-    output += f"<div class=\"item\">{'&nbsp;' * indent * 2}<a href=\"{f[0].name}\">{title}</a></div>"
+    output += f"<div class=\"item\">{'&nbsp;' * indent * 4}<a href=\"{f[0].name}\">{title}</a></div>"
