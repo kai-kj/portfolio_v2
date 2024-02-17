@@ -21,7 +21,14 @@ output += "Pos: 02_00\n\n"
 output += "<h1>Photos</h1>\n\n"
 output += "<p>A collection of photos I've taken in various countries.</p>\n\n"
 
+current_year = None
+
 for src_file in src_files:
+    year = src_file.name.split("_")[1].split("-")[0]
+    if year != current_year:
+        current_year = year
+        output += f"<div id=\"{year}\"></div>\n\n"
+
     photo_info = src_file.name.split(".")[0]
     date = "/".join(photo_info.split("_")[1].split("-")[:3])
     country_code = photo_info.split("_")[2].upper()

@@ -93,8 +93,8 @@ def make_page(in_file: pathlib.Path, header: str, footer: str, nav: str) -> str:
 
     # replace .md and .py with .html if not external link
     html_file = re.sub(
-        r'href="((?!https?:\/\/)[^"]*)(?:(?:.md)|(?:.py))"',
-        r'href=\1.html',
+        r'href="((?!https?:\/\/)[^"]*)(?:(?:.md)|(?:.py))(#\S*)?"',
+        r'href=\1.html\2',
         html_file
     )
 
