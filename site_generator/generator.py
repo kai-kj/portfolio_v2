@@ -15,7 +15,7 @@ def get_out_dir():
     return (pathlib.Path() / sys.argv[2]).absolute()
 
 
-def parse_file(in_file: pathlib.Path) -> (str, dict):
+def parse_file(in_file: pathlib.Path):
     file_type = in_file.suffix
     file_contents_raw = in_file.read_text()
 
@@ -28,7 +28,7 @@ def parse_file(in_file: pathlib.Path) -> (str, dict):
     # Add click to expand
     file_contents = re.sub(
         r'!\[([^\]]*)\]\(assets/(\S*)\)',
-        r'<div class="thumbnail"><img alt="\1" src="thumbnails/\2"><a href="expanded_images/\2.html">click to expand</a></div>',
+        r'<div class="thumbnail"><img alt="\1" src="thumbnails/\2"><a href="assets/\2"> &gt; full resolution image</a></div>',
         file_contents_raw
     )
 
@@ -42,24 +42,6 @@ def parse_file(in_file: pathlib.Path) -> (str, dict):
         ).groups()[1].strip()
 
     return file_contents, metadata
-
-
-def make_image_page(file_name: str) -> str:
-    html_file = "<!doctype html>"
-    html_file += "<html>"
-    html_file += "<head>"
-    html_file += f"<title>{file_name} | Kai Kitagawa-Jones</title>"
-    html_file += "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>"
-    html_file += "<link rel=\"stylesheet\" href=\"../styles/main.css\"/>"
-    html_file += "</head>"
-    html_file += "<body class=\"expanded-image-body\">"
-    html_file += f"<img src=\"../assets/{file_name}\">"
-    html_file += "<a class=\"back-button\" href=\"javascript:window.history.back();\">"
-    html_file += "<img src=\"../assets/x.svg\" alt=\"back\"/>"
-    html_file += "</a>"
-    html_file += "</body>"
-
-    return tidylib.tidy_document(html_file)[0]
 
 
 def make_page(in_file: pathlib.Path, header: str, footer: str, nav: str) -> str:
@@ -119,7 +101,6 @@ out_dir.mkdir()
 (out_dir / "thumbnails").mkdir()
 (out_dir / "files").mkdir()
 (out_dir / "styles").mkdir()
-(out_dir / "expanded_images").mkdir()
 
 # copy assets
 src_files = list((src_dir / "assets").glob("*"))
@@ -134,11 +115,12 @@ for i, src_file in enumerate(src_files):
         assert (src_file.suffix != ".gif")
 
         image = ImageOps.exif_transpose(Image.open(src_file))
-        if image.size[0] > 640 or image.size[1] > 480:
-            scale = min(640 / image.size[0], 480 / image.size[1])
-            image.resize(
+        if image.size[0] > 1280 or image.size[1] > 720:
+            scale = min(1280 / image.size[0], 720 / image.size[1])
+            image = image.resize(
                 (int(image.size[0] * scale), int(image.size[1] * scale))
             )
+
         image.save(out_file_thumb, quality=60)
     except:
         out_file_thumb.touch()
@@ -179,16 +161,5 @@ for i, src_file in enumerate(src_files):
 
     out_file = (out_dir / src_file.name).with_suffix(".html")
     out_file_contents = make_page(src_file, header, footer, nav)
-    out_file.touch()
-    out_file.write_text(out_file_contents)
-
-# generate image pages
-src_files = list((src_dir / "assets").glob("*"))
-
-for i, src_file in enumerate(src_files):
-    print(f"[image page {i + 1}/{len(src_files)}]: {src_file}")
-
-    out_file = out_dir / "expanded_images" / (src_file.name + ".html")
-    out_file_contents = make_image_page(src_file.name)
     out_file.touch()
     out_file.write_text(out_file_contents)

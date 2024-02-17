@@ -16,7 +16,7 @@ for f in src_files:
 
     indent = len(f[0].name.split("_")) - 1
     title = f[1].get('title', [''])[0]
-    output += f"<div class=\"item\">{'&nbsp;' * indent * 2}<a href=\"{f[0].name}\">{title}</a></div>"
+    output += f"<div class=\"item\">{'&nbsp;' * indent * 4}<a href=\"{f[0].name}\">{title}</a></div>"
 
     if f[0].name == "photos.py":
         photo_files = list((src_dir / "assets").glob("*"))
@@ -29,4 +29,4 @@ for f in src_files:
             print(year, current_year)
             if year != current_year:
                 current_year = year
-                output += f"<div class=\"item\">{'&nbsp;' * (indent + 1) * 2}<a href=\"{f[0].name}#{year}\">{year}</a></div>"
+                output += f"<div class=\"item\">{'&nbsp;' * (indent + 1) * 4}<a href=\"{f[0].name}#{year}\">{year}</a></div>"

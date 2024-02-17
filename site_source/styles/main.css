@@ -48,34 +48,17 @@ img {
     margin: auto;
 }
 
-.expanded-image-body>img {
-    border-radius: 0%;
-    max-width: 100%;
-    max-height: calc(100% - 8rem);
-    width: auto;
-}
-
 .thumbnail {
     position: relative;
     margin: 1rem 0;
+    padding-bottom: 1.25rem;
 }
 
 .thumbnail>a {
-    display: none;
     position: absolute;
-    padding: 2rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.thumbnail:hover>img {
-    opacity: 0.1;
-}
-
-.thumbnail:hover>a {
-    display: block;
-    white-space: nowrap;
+    bottom: 0%;
+    right: 0%;
+    font-size: small;
 }
 
 .right_align {
