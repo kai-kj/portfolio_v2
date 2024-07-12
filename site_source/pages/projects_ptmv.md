@@ -10,7 +10,7 @@ Pos: 01_04
     <a href="https://pypi.org/project/ptmv/">PyPI</a>
     &emsp;
     <img class="icon" src="assets/icon_github.svg" alt="github"/>
-    <a href="https://github.com/kal39/ptmv">code</a>
+    <a href="https://github.com/kai-kj/ptmv">code</a>
 </div>
 
 # ptmv
@@ -33,4 +33,4 @@ This app can be installed by using [pip](https://pypi.org/project/ptmv/):
 pip install ptmv
 ```
 
-For detailed install instructions, visit the [GitHub page](https://github.com/kal39/ptmv). 
+For detailed install instructions, visit the [GitHub page](https://github.com/kai-kj/ptmv). 

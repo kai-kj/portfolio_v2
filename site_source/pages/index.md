@@ -25,9 +25,9 @@ I’m half Japanese, half British, and I've lived in the UK, Japan, Spain, and t
 
 ## Links
 
-- Github: [kal39](https://github.com/kal39)
+- Github: [kai-kj](https://github.com/kai-kj)
 - Email: [kaikitagawajones@gmail.com](mailto:kaikitagawajones@gmail.com)
 
 <br>
 
-Source code for this website can be found [here](https://github.com/kal39/portfolio_v2).
+Source code for this website can be found [here](https://github.com/kai-kj/portfolio_v2).

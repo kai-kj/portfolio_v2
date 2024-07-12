@@ -7,7 +7,7 @@ Pos: 01_01
 
 <div class="right_align">
     <img class="icon" src="assets/icon_github.svg" alt="github"/>
-    <a href="https://github.com/kal39/VoxRen">code</a>
+    <a href="https://github.com/kai-kj/VoxRen">code</a>
 </div>
 
 # VoxRen

@@ -7,7 +7,7 @@ Pos: 01_06
 
 <div class="right_align">
     <img class="icon" src="assets/icon_github.svg" alt="github"/>
-    <a href="https://gist.github.com/kal39/26e870d9436c06b2fece78f19a755fbc">code</a>
+    <a href="https://gist.github.com/kai-kj/26e870d9436c06b2fece78f19a755fbc">code</a>
 </div>
 
 # `mini_doc_gen.py`
@@ -49,4 +49,4 @@ assert len(sys.argv) == 3, "provide 2 arguments"
 open(sys.argv[2], "w").write("".join(t_iter(T(open(sys.argv[1], "r").read()))))
 ```
 
-[microcompute](projects_microcompute.md) uses this tool to generate documentation. The output can be seen [here](https://github.com/kal39/microcompute/blob/main/doc.md).
+[microcompute](projects_microcompute.md) uses this tool to generate documentation. The output can be seen [here](https://github.com/kai-kj/microcompute/blob/main/doc.md).

@@ -10,7 +10,7 @@ Pos: 01_03
     <a href="https://doi.kaikitagawajones.com/">try it</a>
     &emsp;
     <img class="icon" src="assets/icon_github.svg" alt="github"/>
-    <a href="https://github.com/kal39/doi_lookup">code</a>
+    <a href="https://github.com/kai-kj/doi_lookup">code</a>
 </div>
 
 # DOI Lookup

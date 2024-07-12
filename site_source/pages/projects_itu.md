@@ -7,7 +7,7 @@ Pos: 01_05
 
 <div class="right_align">
     <img class="icon" src="assets/icon_github.svg" alt="github"/>
-    <a href="https://github.com/kal39/itu">code</a>
+    <a href="https://github.com/kai-kj/itu">code</a>
 </div>
 
 # imageToUnicode

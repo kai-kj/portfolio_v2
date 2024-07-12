@@ -2,7 +2,7 @@ raw: true
 
 <div class="item">
     <img class="icon" src="assets/icon_github.svg" alt="github"/>
-    <a href="https://github.com/kal39">kal39</a>
+    <a href="https://github.com/kai-kj">kai-kj</a>
 </div>
 <div class="item">
     <img class="icon" src="assets/icon_mail.svg" alt="email"/>

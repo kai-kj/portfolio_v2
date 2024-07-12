@@ -14,7 +14,7 @@ output += "Description: A list of projects I've worked on in my free time.\n"
 output += "Icon: logo.jpg\n"
 output += "Pos: 01_00\n\n"
 output += "# Projects\n"
-output += "Over the last few years, I've worked on several programming projects in my free time. The code for all these projects is open source and available on [GitHub](https://github.com/kal39)."
+output += "Over the last few years, I've worked on several programming projects in my free time. The code for all these projects is open source and available on [GitHub](https://github.com/kai-kj)."
 
 for src_file in src_files:
     md = markdown.Markdown(extensions = ["meta"])
